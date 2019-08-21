@@ -49,8 +49,8 @@ DL_SV7=
 
 #Ids of the mods you want to install, leave empty to skip
 #First item is the directory, second item is the AppID. Directory is relative to script directory
-DL_NM0=
-DL_MD0=
+DL_NM0=@antistasi_malden
+DL_MD0=1391816909
  
 DL_NM1=
 DL_MD1=
