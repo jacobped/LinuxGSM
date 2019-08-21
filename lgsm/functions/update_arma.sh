@@ -332,54 +332,53 @@ echo "OK! Completed updating files!"
 echo "Starting Mod moving..."
 
 add_move(){
-MOD="$1"
-DIR_MOD="$2"
+    MOD="$1"
+    DIR_MOD="$2"
 
 	if [ ! -z "$MOD" ]; then
-	if [ -z "$DIR_MOD" ]; then
-		DIR_MOD=$INSTALL_DIR
-	else
-		DIR_MOD=$BASE_DIR/$DIR_MOD
-	fi
+        if [ -z "$DIR_MOD" ]; then
+            DIR_MOD=$INSTALL_DIR
+        else
+            DIR_MOD=$BASE_DIR/$DIR_MOD
+        fi
 
-	OK=0
-	if [ ! -d "$DIR_MOD" ]; then
-		echo -e "[ \e[0;31m$2\e[0m ] Creating directory $DIR_MOD..."
-		mkdir $DIR_MOD
-		if [ ! -d "$DIR_MOD" ]; then
-			OK=1
-		fi
-	fi
-	if [ "$OK" == "0" ]; then
-		rm -rf ~/serverfiles/$2/
-		#echo -e "[ \e[0;32m$2\e[0m ] Removed old folder Successfully!"
-		cp -aru $DIR_MOD/steamapps/workshop/content/107410/$MOD/. ~/serverfiles/$2/
-		#echo -e "[ \e[0;32m$2\e[0m ] Moved Successfully!"
-		convmv --lower -r --replace --notest ~/serverfiles/$2/
-		#echo -e "[ \e[0;32m$2\e[0m ] Renamed all the files to lowercase Successfully!"
-		if [ -d "$DIR_MOD/steamapps/workshop/content/107410/$MOD/keys" ]; then
-			echo "Adding server keys.."
-			cp -au $DIR_MOD/steamapps/workshop/content/107410/$MOD/keys/. ~/serverfiles/keys/
-			echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
-		else 
-			echo -e "[ \e[0;32m$2\e[0m ] No server keys to add from mod. Skipping.."
-		fi
-		#echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
-		#convmv --lower -r --replace --notest ~/serverfiles/$2/
-		#echo -e "[ \e[0;32m$2\e[0m ] Renamed all the files to lowercase Successfully!"
-		ShouldRun=1
-    exitcode=$?
-    if [ ${exitcode} -ne 0 ]; then
-      echo -e "[ \e[0;31m$2\e[0m ] Failed Terribly"
-      exit 1
-    else
-      echo -e "[ \e[0;32m$2\e[0m ] Completed Successfully"
-    fi
+        OK=0
+        if [ ! -d "$DIR_MOD" ]; then
+            echo -e "[ \e[0;31m$2\e[0m ] Creating directory $DIR_MOD..."
+            mkdir $DIR_MOD
+            if [ ! -d "$DIR_MOD" ]; then
+                OK=1
+            fi
+        fi
+        if [ "$OK" == "0" ]; then
+            rm -rf ~/serverfiles/$2/
+            #echo -e "[ \e[0;32m$2\e[0m ] Removed old folder Successfully!"
+            cp -aru $DIR_MOD/steamapps/workshop/content/107410/$MOD/. ~/serverfiles/$2/
+            #echo -e "[ \e[0;32m$2\e[0m ] Moved Successfully!"
+            convmv --lower -r --replace --notest ~/serverfiles/$2/
+            #echo -e "[ \e[0;32m$2\e[0m ] Renamed all the files to lowercase Successfully!"
+            if [ -d "$DIR_MOD/steamapps/workshop/content/107410/$MOD/keys" ]; then
+                echo "Adding server keys.."
+                cp -au $DIR_MOD/steamapps/workshop/content/107410/$MOD/keys/. ~/serverfiles/keys/
+                echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
+            else 
+                echo -e "[ \e[0;32m$2\e[0m ] No server keys to add from mod. Skipping.."
+            fi
+            #echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
+            #convmv --lower -r --replace --notest ~/serverfiles/$2/
+            #echo -e "[ \e[0;32m$2\e[0m ] Renamed all the files to lowercase Successfully!"
+            ShouldRun=1
+        exitcode=$?
+        if [ ${exitcode} -ne 0 ]; then
+            echo -e "[ \e[0;31m$2\e[0m ] Failed Terribly"
+            exit 1
+        else
+            echo -e "[ \e[0;32m$2\e[0m ] Completed Successfully"
+        fi
 		#echo "Complete! You moved AppID $MOD into $DIR_MOD successfully."
 	#else
 		#echo -e "[ \e[0;33m$2\e[0m ] WARNING! Cannot move AppID $MOD into $DIR_MOD. Failed to create directory"
 	fi
-fi
 }
 add_move "$DL_MD0" "$DL_NM0"
 add_move "$DL_MD1" "$DL_NM1"
