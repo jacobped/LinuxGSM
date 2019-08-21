@@ -15,7 +15,7 @@ check.sh
 #The default location of the server, relative to this script (default: server).
 #If no directory is specified for the server, it'll fall back on this one.
 #Don't add a trailing /
-INSTALL_DIR=serverfiles/mods
+INSTALL_DIR=serverfiles
 
 #The location of the SteamCMD, relative to this script (default: bin). Don't add a trailing /
 STEAM_DIR=steamcmd
