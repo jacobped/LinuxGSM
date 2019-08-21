@@ -310,7 +310,6 @@ add_mod "$DL_MD26" "$DL_NM26"
 add_mod "$DL_MD27" "$DL_NM27"
 add_mod "$DL_MD28" "$DL_NM28"
 add_mod "$DL_MD29" "$DL_NM29"
-add_mod "$DL_MD30" "$DL_NM30"
 
 CmdArgs="$CmdArgs +quit"
 
@@ -362,6 +361,8 @@ DIR_MOD="$2"
 			echo "Adding server keys.."
 			cp -au $DIR_MOD/steamapps/workshop/content/107410/$MOD/keys/. ~/serverfiles/keys/
 			echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
+		else 
+			echo -e "[ \e[0;32m$2\e[0m ] No server keys to add from mod. Skipping.."
 		fi
 		#echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
 		#convmv --lower -r --replace --notest ~/serverfiles/$2/
@@ -410,21 +411,10 @@ add_move "$DL_MD26" "$DL_NM26"
 add_move "$DL_MD27" "$DL_NM27"
 add_move "$DL_MD28" "$DL_NM28"
 add_move "$DL_MD29" "$DL_NM29"
-add_move "$DL_MD30" "$DL_NM30"
 
 echo ""
 #This starts the server after the process has Downloaded and moved all the mods.
 ./arma3server start
-
-echo ""
-echo "###################################"
-echo "###################################"
-echo "###   All mods/server updated   ###"
-echo "###    server/mod updater by:   ###"
-echo "###         JediNarwals         ###"
-echo "###################################"
-echo "###################################"
-echo ""
 
 alert="update"
 alert.sh
