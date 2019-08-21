@@ -352,7 +352,7 @@ DIR_MOD="$2"
 		fi
 	fi
 	if [ "$OK" == "0" ]; then
-		rm -r ~/serverfiles/$2/
+		rm -rf ~/serverfiles/$2/
 		#echo -e "[ \e[0;32m$2\e[0m ] Removed old folder Successfully!"
 		cp -aru $DIR_MOD/steamapps/workshop/content/107410/$MOD/. ~/serverfiles/$2/
 		#echo -e "[ \e[0;32m$2\e[0m ] Moved Successfully!"
