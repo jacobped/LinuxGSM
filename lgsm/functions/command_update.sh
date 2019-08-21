@@ -22,6 +22,8 @@ elif [ "${shortname}" == "fctr" ]; then
 	update_factorio.sh
 elif [ "${shortname}" == "mta" ]; then
 	update_mta.sh
+elif [ "${gamename}" == "ARMA 3" ]; then
+	update_arma.sh
 else
 	update_steamcmd.sh
 fi
