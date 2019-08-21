@@ -358,7 +358,11 @@ DIR_MOD="$2"
 		#echo -e "[ \e[0;32m$2\e[0m ] Moved Successfully!"
 		convmv --lower -r --replace --notest ~/serverfiles/$2/
 		#echo -e "[ \e[0;32m$2\e[0m ] Renamed all the files to lowercase Successfully!"
-		cp -au $DIR_MOD/steamapps/workshop/content/107410/$MOD/keys/. ~/serverfiles/keys/
+		if [ -d "$DIR_MOD/steamapps/workshop/content/107410/$MOD/keys" ]; then
+			echo "Adding server keys.."
+			cp -au $DIR_MOD/steamapps/workshop/content/107410/$MOD/keys/. ~/serverfiles/keys/
+			echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
+		fi
 		#echo -e "[ \e[0;32m$2\e[0m ] Server keys added Successfully!"
 		#convmv --lower -r --replace --notest ~/serverfiles/$2/
 		#echo -e "[ \e[0;32m$2\e[0m ] Renamed all the files to lowercase Successfully!"
