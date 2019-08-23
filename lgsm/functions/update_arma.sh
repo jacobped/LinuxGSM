@@ -49,26 +49,26 @@ DL_SV7=
 
 #Ids of the mods you want to install, leave empty to skip
 #First item is the directory, second item is the AppID. Directory is relative to script directory
-DL_NM0=@antistasi_malden
-DL_MD0=1391816909
+DL_NM0=@remove_stamina
+DL_MD0=632435682
  
-DL_NM1=
-DL_MD1=
+DL_NM1=@enhanced_movement
+DL_MD1=333310405
  
-DL_NM2=
-DL_MD2=
+DL_NM2=@cba_a3
+DL_MD2=450814997
  
-DL_NM3=
-DL_MD3=
+DL_NM3=@rhsusaf
+DL_MD3=843577117
  
-DL_NM4=
-DL_MD4=
+DL_NM4=@rhsafrf
+DL_MD4=843425103
  
-DL_NM5=
-DL_MD5=
+DL_NM5=@rhsgref
+DL_MD5=843593391
  
-DL_NM6=
-DL_MD6=
+DL_NM6=@rhssaf
+DL_MD6=843632231
  
 DL_NM7=
 DL_MD7=
@@ -155,12 +155,7 @@ clear
 echo ""
 echo "================================="
 echo ""
-echo "updateserver.sh"
-echo "Linux Game Server/Mod updater"
-echo "by JediNarwals"
-echo "EuroForce Mod updater"
-echo "Made for EuroForce"
-echo "Integrated with LGSM"
+echo "Arma game and mod updater"
 echo ""
 echo "================================="
 echo ""
